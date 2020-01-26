@@ -1,6 +1,6 @@
 # bytebank
 
-A new Flutter project.
+Um projeto da alura para o curso de primeros passo com flutter
 
 ## Getting Started
 
