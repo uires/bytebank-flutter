@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(
-    Column(
-      children: <Widget>[
-        Text('Bem vindo ao Bytebank!', 
-          textDirection: TextDirection.ltr,
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Transferências'),
         ),
-        Text('Bem vindo ao Bytebank!', 
-          textDirection: TextDirection.ltr,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: _print(),
         ),
-      ],
+      ),
     )
   );
+
+  _print() {
+    
+    print('método para tirar warning do flutter');
+  }
