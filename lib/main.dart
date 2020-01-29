@@ -1,30 +1,50 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-    MaterialApp(
+void main() => runApp(ByteBankApp());
+
+class ByteBankApp extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        body: Column(children: <Widget>[
+        body: ListaTransferencia(),
+      ),
+    );
+  }
+}
+
+class FormularioTransferencia extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    
+    return Container();
+  }
+}
+
+class ListaTransferencia extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+
+   return Scaffold(
+        body: Column(
+          children: <Widget>[
             ItemTransferencia(Transferencia(100.00, 991)),
             ItemTransferencia(Transferencia(1189.00, 996)),
             ItemTransferencia(Transferencia(1500.99, 997))
           ]
         ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add)
+        ),
         appBar: AppBar(
           title: Text('Transferências'),
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: _print(),
-        ),
-      ),
-    )
-  );
-
-  _print() {
-
-    print('método para tirar warning do flutter');
+    );
   }
-
+}
 
 class ItemTransferencia extends StatelessWidget {
 
