@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(ByteBankApp());
@@ -15,7 +17,10 @@ class ByteBankApp extends StatelessWidget {
 }
 
 class FormularioTransferencia extends StatelessWidget {
-  
+
+  final TextEditingController _valorController = TextEditingController();
+  final TextEditingController _numeroContaoController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     
@@ -28,6 +33,7 @@ class FormularioTransferencia extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
+              controller: this._numeroContaoController,
               style: TextStyle(
                 fontSize: 24.0
               ),
@@ -41,6 +47,7 @@ class FormularioTransferencia extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
+              controller: this._valorController,
               style: TextStyle(
                 fontSize: 24.0
               ),
@@ -54,6 +61,16 @@ class FormularioTransferencia extends StatelessWidget {
           ),
           RaisedButton(
             child: Text('Confirmar'),
+            onPressed: () {
+              
+              final int numero = int.tryParse(_numeroContaoController.text);
+              final double valor = double.tryParse(_valorController.text);
+              if(numero != null && valor != null) {
+
+                final transferenciaCriada = Transferencia(valor, numero);
+                debugPrint('${transferenciaCriada.toString()}');
+              }
+            },
           )
         ],
       ),
