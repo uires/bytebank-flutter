@@ -6,13 +6,15 @@ import 'package:flutter/material.dart';
 import 'lista_transferencia.dart';
 
 class ListaTransferenciaState extends State<ListaTransferencia> {
+  final List<Transferencia> _transferencias = List();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: widget._transferencias.length,
+        itemCount: this._transferencias.length,
         itemBuilder: (context, indice) {
-          final transferencia = widget._transferencias[indice];
+          final transferencia = this._transferencias[indice];
           return ItemTransferencia(transferencia);
         },
       ),
@@ -27,7 +29,7 @@ class ListaTransferenciaState extends State<ListaTransferencia> {
             Future.delayed(Duration(seconds: 1), () {
               if (transferenciaRecebida != null) {
                 setState(() {
-                  widget._transferencias.add(transferenciaRecebida);
+                  this._transferencias.add(transferenciaRecebida);
                 });
               }
             });

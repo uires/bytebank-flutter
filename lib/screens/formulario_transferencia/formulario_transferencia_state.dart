@@ -1,7 +1,10 @@
 import 'package:bytebank/components/editor.dart';
+import 'package:bytebank/models/transferencia.dart';
 import 'package:flutter/material.dart';
 
 import 'formulario_transferencia.dart';
+
+const _tituloAppBar = 'Criando Transferência';
 
 class FormularioTransferenciaState extends State<FormularioTransferencia> {
   final TextEditingController _valorController = TextEditingController();
@@ -20,7 +23,7 @@ class FormularioTransferenciaState extends State<FormularioTransferencia> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Criando Transferência"),
+        title: Text(_tituloAppBar),
       ),
       body: SingleChildScrollView(
         child: Column(
